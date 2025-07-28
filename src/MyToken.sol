@@ -17,9 +17,7 @@ contract MyToken is ERC721 {
         s_tokenIdToUri[tokenId] = tokenUri;
     }
 
-    function getTokenUri(
-        uint256 tokenId
-    ) external view returns (string memory) {
+    function getTokenUri(uint256 tokenId) external view returns (string memory) {
         return s_tokenIdToUri[tokenId];
     }
 

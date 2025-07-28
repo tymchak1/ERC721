@@ -6,14 +6,10 @@ import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
 import {MyToken} from "../src/MyToken.sol";
 
 contract MintMyToken is Script {
-    string public constant PUG =
-        "ipfs://bafybeibc5sgo2plmjkq2tzmhrn54bk3crhnc23zd2msg4ea7a4pxrkgfna/4859";
+    string public constant PUG = "ipfs://bafybeibc5sgo2plmjkq2tzmhrn54bk3crhnc23zd2msg4ea7a4pxrkgfna/4859";
 
     function run() external {
-        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment(
-            "MyToken",
-            block.chainid
-        );
+        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment("MyToken", block.chainid);
         mintNftOnContract(mostRecentlyDeployed);
     }
 

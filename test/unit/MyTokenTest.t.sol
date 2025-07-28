@@ -9,8 +9,7 @@ contract MyTokenTest is Test {
     DeployMyToken public deployer;
     MyToken public myToken;
     address public USER = makeAddr("user");
-    string public constant PUG =
-        "ipfs://bafybeibc5sgo2plmjkq2tzmhrn54bk3crhnc23zd2msg4ea7a4pxrkgfna/4859";
+    string public constant PUG = "ipfs://bafybeibc5sgo2plmjkq2tzmhrn54bk3crhnc23zd2msg4ea7a4pxrkgfna/4859";
 
     function setUp() public returns (MyToken) {
         deployer = new DeployMyToken();
@@ -25,10 +24,7 @@ contract MyTokenTest is Test {
         string memory expectedName = "MyToken";
         string memory actualName = myToken.name();
         // two strings comparing
-        assert(
-            keccak256(abi.encodePacked(expectedName)) ==
-                keccak256(abi.encodePacked(actualName))
-        );
+        assert(keccak256(abi.encodePacked(expectedName)) == keccak256(abi.encodePacked(actualName)));
     }
 
     function test_TokenIdIsZero() public view {
@@ -43,10 +39,7 @@ contract MyTokenTest is Test {
         vm.prank(USER);
         myToken.safeMint(PUG);
         assert(myToken.balanceOf(USER) == 1);
-        assert(
-            keccak256(abi.encodePacked(PUG)) ==
-                keccak256(abi.encodePacked(myToken.getTokenUri(0)))
-        );
+        assert(keccak256(abi.encodePacked(PUG)) == keccak256(abi.encodePacked(myToken.getTokenUri(0))));
     }
 
     /*//////////////////////////////////////////////////////////////
