@@ -22,4 +22,8 @@ contract MyToken is ERC721 {
     ) external view returns (string memory) {
         return s_tokenIdToUri[tokenId];
     }
+
+    function getNextTokenId() public view returns (uint256) {
+        return _nextTokenId;
+    }
 }
